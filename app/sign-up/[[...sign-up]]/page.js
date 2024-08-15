@@ -1,20 +1,32 @@
-import { SignUp } from "@clerk/nextjs";
-import {
-  AppBar,
-  Link,
-  Container,
-  Toolbar,
-  Typography,
-  Button,
-  Box,
-} from "@mui/material";
+import React from 'react';
+import { Container, Box, Typography, AppBar, Toolbar, Button } from '@mui/material';
+import { SignUp } from '@clerk/nextjs';
+import Link from 'next/link';
 
 export default function SignUpPage() {
   return (
-    <Container maxWidth="100vw">
-      <AppBar position="static" sx={{ backgroundColor: "3f51b5" }}>
+    <Container 
+      maxWidth="100vw" 
+      sx={{ 
+        background: 'linear-gradient(to bottom right, #e0f7fa, #80deea)', // Gradient background
+        minHeight: '100vh', // Ensure full height
+        padding: '20px', // Add some padding
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}
+    >
+      <AppBar position="static" sx={{ backgroundColor: '#3f51b5' }}>
         <Toolbar>
-          <Typography variant="h6" sx={{ flexGrow: 1 }}>
+          <Typography 
+            variant="h6" 
+            sx={{
+              flexGrow: 1,
+              fontWeight: 'bold',
+              color: '#fff'
+            }}
+          >
             Flashcard SaaS
           </Typography>
           <Button color="inherit">
@@ -29,17 +41,23 @@ export default function SignUpPage() {
           </Button>
         </Toolbar>
       </AppBar>
-
       <Box
         display="flex"
-        flexDirection={"column"}
-        alignItems={"center"}
-        justifyContent={"center"}
+        flexDirection="column"
+        justifyContent="center"
+        alignItems="center"
+        sx={{ 
+          backgroundColor: '#fff', 
+          padding: '40px', 
+          borderRadius: '8px', 
+          boxShadow: 3, 
+          marginTop: '40px'
+        }}
       >
-        <Typography variant="h4">
+        <Typography variant="h4" component="h1" gutterBottom sx={{ fontWeight: 'bold', color: '#3f51b5' }}>
           Sign Up
-          <SignUp />
         </Typography>
+        <SignUp />
       </Box>
     </Container>
   );
